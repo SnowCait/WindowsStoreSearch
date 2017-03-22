@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,16 @@ namespace WindowsStoreSearch
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void FileExt_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?FileExt={args.QueryText}"));
+        }
+
+        private async void Protocol_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?Protocol={args.QueryText}"));
         }
     }
 }
