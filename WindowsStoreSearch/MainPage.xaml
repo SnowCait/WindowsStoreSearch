@@ -5,6 +5,7 @@
     xmlns:local="using:WindowsStoreSearch"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -12,15 +13,23 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="AppName" Text="Windows ストア検索" FontSize="24"/>
         </Grid>
 
         <StackPanel Grid.Row="1" Margin="10">
-            <AutoSuggestBox x:Name="FileExt" Header="ファイル拡張子に関連付けられた製品" QueryIcon="Find" PlaceholderText="pdf" QuerySubmitted="FileExt_QuerySubmitted"/>
-            <AutoSuggestBox x:Name="Protocol" Header="プロトコルに関連付けられた製品" QueryIcon="Find" PlaceholderText="ms-word" QuerySubmitted="Protocol_QuerySubmitted"/>
-            <AutoSuggestBox x:Name="Publisher" Header="指定した発行元からの製品" QueryIcon="Find" PlaceholderText="Microsoft Corporation" QuerySubmitted="Publisher_QuerySubmitted"/>
+            <AutoSuggestBox x:Name="Search" Header="検索" QueryIcon="Find" PlaceholderText="OneNote" QuerySubmitted="Search_QuerySubmitted"/>
+            <AutoSuggestBox x:Name="Tags" Header="1 つまたは複数のタグに関連付けられた製品の検索" QueryIcon="Find" PlaceholderText="Photos_Rich_Media_Edit, Camera_Capture_App" QuerySubmitted="Tags_QuerySubmitted"/>
+            <AutoSuggestBox x:Name="Publisher" Header="指定した発行元からの製品の検索" QueryIcon="Find" PlaceholderText="Microsoft Corporation" QuerySubmitted="Publisher_QuerySubmitted"/>
+            <AutoSuggestBox x:Name="FileExt" Header="ファイル拡張子に関連付けられた製品の検索" QueryIcon="Find" PlaceholderText="pdf" QuerySubmitted="FileExt_QuerySubmitted"/>
+            <AutoSuggestBox x:Name="Protocol" Header="プロトコルに関連付けられた製品の検索" QueryIcon="Find" PlaceholderText="ms-word" QuerySubmitted="Protocol_QuerySubmitted"/>
+
+            <UI:AdControl ApplicationId="3f83fe91-d6be-434d-a0ae-7351c5a997f1"
+                AdUnitId="10865270"
+                HorizontalAlignment="Center"
+                Height="250"
+                Width="300" Margin="0,50,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

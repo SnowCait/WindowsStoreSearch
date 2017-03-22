@@ -28,6 +28,21 @@ namespace WindowsStoreSearch
             this.InitializeComponent();
         }
 
+        private async void Search_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://search/?query={args.QueryText}"));
+        }
+
+        private async void Tags_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?Tags={args.QueryText}"));
+        }
+
+        private async void Publisher_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://publisher/?name={args.QueryText}"));
+        }
+
         private async void FileExt_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?FileExt={args.QueryText}"));
@@ -36,11 +51,6 @@ namespace WindowsStoreSearch
         private async void Protocol_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?Protocol={args.QueryText}"));
-        }
-
-        private async void Publisher_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
-        {
-            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://publisher/?name={args.QueryText}"));
         }
     }
 }
