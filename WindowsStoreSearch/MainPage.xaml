@@ -17,7 +17,7 @@
             <TextBlock x:Name="AppName" Text="Windows ストア検索" FontSize="24"/>
         </Grid>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Margin="10">
             <AutoSuggestBox x:Name="FileExt" Header="ファイル拡張子に関連付けられた製品" QueryIcon="Find" PlaceholderText="pdf" QuerySubmitted="FileExt_QuerySubmitted"/>
             <AutoSuggestBox x:Name="Protocol" Header="プロトコルに関連付けられた製品" QueryIcon="Find" PlaceholderText="ms-word" QuerySubmitted="Protocol_QuerySubmitted"/>
         </StackPanel>
