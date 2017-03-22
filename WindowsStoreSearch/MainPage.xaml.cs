@@ -37,5 +37,10 @@ namespace WindowsStoreSearch
         {
             await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://assoc/?Protocol={args.QueryText}"));
         }
+
+        private async void Publisher_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://publisher/?name={args.QueryText}"));
+        }
     }
 }
